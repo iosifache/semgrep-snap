@@ -1,0 +1,63 @@
+# Identifier
+name: semgrep
+
+# Version
+version: '1.0'
+
+# Name displayed in the software center GUI
+title: Semgrep
+
+# Sentence summarising the snap
+summary: Static code scanning
+
+# Detailed 
+description: |
+  Semgrep is a fast, open-source, static analysis engine for finding bugs,
+  detecting vulnerabilities in third-party dependencies, and enforcing code
+  standards. Semgrep analyzes code locally on your computer or in your build
+  environment: code is never uploaded.
+
+# Base snap
+base: core22
+
+# Maturity, either devel or stable
+grade: stable
+
+# Minimal access level, with permissions provided by the interfaces above
+confinement: strict
+
+# Build and run architectures
+# 
+# Despite the Python package can be installed on arm64, it will not run due to
+# reasons detailed in issue #2252 from GitHub. Based on a recent comment
+# (https://github.com/returntocorp/semgrep/issues/2252#issuecomment-1626290561)
+# from Tom Petr, a Semgrep contributor, Python wheels for arm64 will be
+# available soon.
+architectures:
+  - build-on: amd64
+
+# Python part for "proxying" the Python wheel from PyPi
+parts:
+  semgrep:
+    plugin: python
+    source: .
+    python-packages:
+      - semgrep
+
+# Apps, aka entry points in the snap
+# 
+# The following plugs are used:
+# 1. Home directory access
+# 2. Desktop access
+# 3. Network access: Semgrep communicated with its Registry to fetch rules. In
+#                    addition, version checking and pseudonymous usage metrics
+#                    are enabled by default and require Internet access. More
+#                    details can be found on the above link: https://semgrep\
+#                    .dev/docs/faq/#what-network-requests-are-made
+apps:
+  semgrep:
+    command: bin/python3 -m semgrep
+    plugs:
+      - home
+      - desktop
+      - network
