@@ -3,7 +3,7 @@
 </p>
 <h2 align="center">Code scanning at ludicrous speed, all in a snap</h2>
 <p align="center" float="left">
-    <img src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" alt="Get it from the Snap Store" width="100"/>
+    <a hrep="https://snapcraft.io/semgrep"><img src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" alt="Get it from the Snap Store" width="100"/></a>
     &nbsp; &nbsp;
     <img src="https://snapcraft.io/semgrep/badge.svg" width="150" alt="Snapcraft's Version"/>
     &nbsp; &nbsp;
