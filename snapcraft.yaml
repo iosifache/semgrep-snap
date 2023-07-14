@@ -4,19 +4,6 @@ name: semgrep
 # Version
 version: '1.0'
 
-# Name displayed in the software center GUI
-title: Semgrep
-
-# Sentence summarising the snap
-summary: Static code scanning
-
-# Detailed 
-description: |
-  Semgrep is a fast, open-source, static analysis engine for finding bugs,
-  detecting vulnerabilities in third-party dependencies, and enforcing code
-  standards. Semgrep analyzes code locally on your computer or in your build
-  environment: code is never uploaded.
-
 # Base snap
 base: core22
 
@@ -36,7 +23,7 @@ confinement: strict
 architectures:
   - build-on: amd64
 
-# Python part for "proxying" the Python wheel from PyPi
+# A Python part for "proxying" the wheel from PyPi
 parts:
   semgrep:
     plugin: python
@@ -61,3 +48,30 @@ apps:
       - home
       - desktop
       - network
+
+# Name displayed in the software center GUI
+title: Semgrep
+
+# Sentence summarising the snap
+summary: Static code scanning
+
+# Detailed 
+description: |
+  Semgrep is a fast, open-source, static analysis engine for finding bugs,
+  detecting vulnerabilities in third-party dependencies, and enforcing code
+  standards. Semgrep analyzes code locally on your computer or in your build
+  environment: code is never uploaded.
+
+# Icon displayed in the store
+icon: images/icon.png
+
+# Issue reporting
+issues:
+  - https://github.com/iosifache/semgrep-snap/issues
+  - https://github.com/returntocorp/semgrep/issues
+
+# Snap's license (not Semgrep's one, which is LGPL-2.1)
+license: MIT
+
+# Website
+website: https://github.com/iosifache/semgrep-snap
