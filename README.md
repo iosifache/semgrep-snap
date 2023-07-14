@@ -17,7 +17,7 @@ Semgrep is an open source static code analysis tool that may be used to identify
 # Local Build
 
 1. Clone this repository: `git clone https://github.com/iosifache/semgrep-snap`
-2. Move into the clonned repository: `cd semgrep-snap`
+2. Move into the cloned repository: `cd semgrep-snap`
 3. Install Snapcraft: `sudo snap install snapcraft --classic`
 4. Build the snap: `snapcraft --verbose`
 5. Install the snap: `snap install --dangerous ./semgrep_*.snap`
