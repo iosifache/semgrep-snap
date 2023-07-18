@@ -3,9 +3,11 @@
 </p>
 <h2 align="center">Code scanning at ludicrous speed, all in a snap</h2>
 <p align="center" float="left">
-    <img src="https://snapcraft.io/semgrep/badge.svg" width="150" alt="Snapcraft's Version"/>
+    <img src="https://snapcraft.io/semgrep/badge.svg" width="150" height="17" alt="Snapcraft's Version"/>
     &nbsp; &nbsp;
-    <img alt="PyPI's Version" src="https://img.shields.io/pypi/v/semgrep?label=Semgrep%20on%20PyPi&color=blue">
+    <img src="https://img.shields.io/pypi/v/semgrep?label=Semgrep%20on%20PyPi&color=1c8223" height="17" alt="PyPI's Version">
+    &nbsp; &nbsp;
+    <img src="https://img.shields.io/github/actions/workflow/status/iosifache/semgrep-snap/main.yml?label=Build%20Status&color=1c8223" height="17" alt="GitHub Build Workflow Status">
 </p>
 
 # Description
