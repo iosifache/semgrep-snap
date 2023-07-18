@@ -35,8 +35,7 @@ parts:
 # 
 # The following plugs are used:
 # 1. Home directory access
-# 2. Desktop access
-# 3. Network access: Semgrep communicated with its Registry to fetch rules. In
+# 2. Network access: Semgrep communicated with its Registry to fetch rules. In
 #                    addition, version checking and pseudonymous usage metrics
 #                    are enabled by default and require Internet access. More
 #                    details can be found on the above link: https://semgrep\
@@ -46,7 +45,6 @@ apps:
     command: bin/python3 -m semgrep
     plugs:
       - home
-      - desktop
       - network
 
 # Name displayed in the software center GUI
