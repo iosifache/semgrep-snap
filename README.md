@@ -1,5 +1,7 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/returntocorp/semgrep/develop/images/semgrep-logo-light.svg" height="100" alt="Semgrep logo"/>
+    <a href="https://semgrep.dev">
+        <img src="https://raw.githubusercontent.com/returntocorp/semgrep/develop/images/semgrep-logo-light.svg" height="100" alt="Semgrep logo"/>
+    </a>
 </p>
 <h2 align="center">Code scanning at ludicrous speed, all in a snap</h2>
 <p align="center" float="left">
@@ -12,9 +14,11 @@
 
 # Description
 
-Semgrep is an open source static code analysis tool that may be used to identify vulnerabilities in your own codebase or third-party dependencies. The goal of this repository is to package Semgrep as a snap that can be effortlessly distributed across a variety of Linux distributions.
+Semgrep is an open source static code analysis tool that may be used to identify vulnerabilities in your own codebase or third-party dependencies. The goal of this repository is to package Semgrep as a **(community) snap that can be effortlessly installed across a variety of Linux distributions**.
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/semgrep)
+
+> Notice: If you want to view the officially recommended method of installing the OSS engine, refer to the [Semgrep documentation](https://semgrep.dev/docs/getting-started/#installing-and-running-semgrep-locally).
 
 # Local Build
 
