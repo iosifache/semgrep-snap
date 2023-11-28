@@ -14,14 +14,9 @@ grade: stable
 confinement: strict
 
 # Build and run architectures
-# 
-# Despite the Python package can be installed on arm64, it will not run due to
-# reasons detailed in issue #2252 from GitHub. Based on a recent comment
-# (https://github.com/returntocorp/semgrep/issues/2252#issuecomment-1626290561)
-# from Tom Petr, a Semgrep contributor, Python wheels for arm64 will be
-# available soon.
 architectures:
-  - build-on: amd64
+  - build-on: [amd64]
+  - build-on: [arm64]
 
 # A Python part for "proxying" the wheel from PyPi
 parts:
