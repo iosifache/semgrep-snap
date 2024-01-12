@@ -1,8 +1,8 @@
 # Identifier
 name: semgrep
 
-# Version of the snap, synced with the one of Semgrep
-version: '1.56.0'
+# Version of the snap retrieved from the pip package
+adopt-info: semgrep
 
 # Base snap
 base: core22
@@ -25,9 +25,13 @@ parts:
     source: .
     python-packages:
       - semgrep
+    override-build: |
+      craftctl default
+      version="$(python3 -m pip show semgrep | sed -n 's|^Version: ||p')"
+      craftctl set version="$version"
 
 # Apps, aka entry points in the snap
-# 
+#
 # The following plugs are used:
 # 1. Home directory access
 # 2. Network access: Semgrep communicated with its Registry to fetch rules. In
@@ -48,7 +52,7 @@ title: Semgrep
 # Sentence summarising the snap
 summary: Static code scanning
 
-# Detailed 
+# Detailed
 description: |
   Semgrep is a fast, open-source, static analysis engine for finding bugs,
   detecting vulnerabilities in third-party dependencies, and enforcing code
