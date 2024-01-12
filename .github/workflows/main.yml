@@ -1,12 +1,67 @@
-name: build-snap
+name: Snap
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      snap-file: ${{ steps.build-snap.outputs.snap }}
+
     steps:
-    - uses: actions/checkout@v3
-    - uses: snapcore/action-build@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build snap
+        id: build-snap
+        uses: snapcore/action-build@v1
+
+      - name: Upload snap
+        uses: actions/upload-artifact@v3
+        with:
+          name: snap
+          path: ${{ steps.build-snap.outputs.snap }}
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: snap
+          path: .
+
+      - name: Install snap
+        run: |
+          sudo snap install --dangerous ${{needs.build.outputs.snap-file}}
+
+      - name: Run snap
+        run: |
+          semgrep --version
+
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: snap
+        path: .
+
+    - uses: snapcore/action-publish@v1
+      env:
+        SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
+      if: env.SNAPCRAFT_STORE_CREDENTIALS
+      with:
+        snap: ${{needs.build.outputs.snap-file}}
+        release: candidate
