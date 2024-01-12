@@ -37,7 +37,7 @@ parts:
 #                    .dev/docs/faq/#what-network-requests-are-made
 apps:
   semgrep:
-    command: semgrep
+    command: bin/python3 -m semgrep
     plugs:
       - home
       - network
