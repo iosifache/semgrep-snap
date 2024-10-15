@@ -1,4 +1,4 @@
-name: build-snap
+name: Tries building the snap
 
 on:
   pull_request:
